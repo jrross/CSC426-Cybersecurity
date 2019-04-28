@@ -1,0 +1,23 @@
+{
+"name":"Phish Phinder",
+"description":"Finds and highlights potential phishing threats!",
+"version":"1.0",
+"manifest_version":2,
+"icons": { "512": "images/fish-512.png"},
+"permissions": ["declarativeContent", "storage"],
+"page_action": {
+      "default_popup": "popup.html"
+    },
+"background": {
+    "scripts": ["background.js"],
+    "persistent": false
+    },
+"web_accessible_resources": ["lib/party.css"],
+"content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+	  "css": ["lib/party.css"],
+      "js": ["findLinks.js"]
+    }
+  ]
+}
